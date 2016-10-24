@@ -27,7 +27,6 @@ namespace CoolValidator
             var txtInManyTableLayoutPanel = GetTextBoxInManyContainers<TableLayoutPanel>(form);
 
             var txtInFlowLayoutPanel = GetTextBoxInContainer<FlowLayoutPanel>(form);
-            var txtInManyFlowLayoutPanel = GetTextBoxInManyContainers<FlowLayoutPanel>(form);
 
             var txtInForm = GetTextBoxInForm(form);
 
@@ -47,7 +46,6 @@ namespace CoolValidator
             txtList.AddRange(txtInManyTableLayoutPanel);
 
             txtList.AddRange(txtInFlowLayoutPanel);
-            txtList.AddRange(txtInManyFlowLayoutPanel);
 
             txtList.AddRange(txtInForm);
 
