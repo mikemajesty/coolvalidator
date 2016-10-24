@@ -17,16 +17,11 @@ namespace CoolValidator
             var txtInGroupBox = GetTextBoxInContainer<GroupBox>(form);
             var txtInManyGroupBox = GetTextBoxInManyContainers<GroupBox>(form);
 
-            var txtInTabControl = GetTextBoxInContainer<TabControl>(form);
-            var txtInManyTabControl = GetTextBoxInManyContainers<TabControl>(form);
-
             var txtInSplitContainer = GetTextBoxInContainer<SplitContainer>(form);
             var txtInManySplitContainer = GetTextBoxInManyContainers<SplitContainer>(form);
 
-            var txtInTableLayoutPanel = GetTextBoxInContainer<TableLayoutPanel>(form);
-            var txtInManyTableLayoutPanel = GetTextBoxInManyContainers<TableLayoutPanel>(form);
-
-            var txtInFlowLayoutPanel = GetTextBoxInContainer<FlowLayoutPanel>(form);
+            var txtInTabControl = GetTextBoxInContainer<TabControl>(form);
+            var txtInManyTabControl = GetTextBoxInManyContainers<TabControl>(form);
 
             var txtInForm = GetTextBoxInForm(form);
 
@@ -41,11 +36,6 @@ namespace CoolValidator
 
             txtList.AddRange(txtInSplitContainer);
             txtList.AddRange(txtInManySplitContainer);
-
-            txtList.AddRange(txtInTableLayoutPanel);
-            txtList.AddRange(txtInManyTableLayoutPanel);
-
-            txtList.AddRange(txtInFlowLayoutPanel);
 
             txtList.AddRange(txtInForm);
 
