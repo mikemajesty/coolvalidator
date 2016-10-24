@@ -7,15 +7,15 @@ namespace CoolValidator
 {
     public static class formValidator
     {
-        public static List<TextBox> GetTextBoxInComponent(this Form form, Func<TextBox, bool> predicate = null)
+        public static List<TextBox> ValidateTextBox(this Form form, Func<TextBox, bool> predicate = null)
         {
             var txtList = new List<TextBox>();
 
-            var txtInPanel = GetTextBoxInPanel(form);
-            var txtInManyPanel = GetInHierarchicalPanel(form);
+            var txtInPanel = GetTextBoxInGroupBox<Panel>(form);
+            var txtInManyPanel = GetInHierarchicalGroupBox<Panel>(form);
 
-            var txtInGroupBox = GetTextBoxInGroupBox(form);
-            var txtInManyGroupBox = GetInHierarchicalGroupBox(form);
+            var txtInGroupBox = GetTextBoxInGroupBox<GroupBox>(form);
+            var txtInManyGroupBox = GetInHierarchicalGroupBox<GroupBox>(form);
 
             var txtInForm = GetTextBoxInForm(form);
 
@@ -34,24 +34,14 @@ namespace CoolValidator
             return form.Controls.OfType<TextBox>().Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
         }
 
-        private static List<TextBox> GetTextBoxInGroupBox(Form form)
+        private static List<TextBox> GetTextBoxInGroupBox<T>(Form form) where T : Control
         {
             return form.Controls.OfType<GroupBox>().SelectMany(panel => panel.Controls.OfType<TextBox>()).Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
         }
 
-        private static List<TextBox> GetInHierarchicalGroupBox(Form form)
+        private static List<TextBox> GetInHierarchicalGroupBox<T>(Form form) where T : Control
         {
             return form.Controls.OfType<GroupBox>().SelectMany(panel => panel.Controls.OfType<GroupBox>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
-        }
-
-        private static List<TextBox> GetTextBoxInPanel(Form form)
-        {
-            return form.Controls.OfType<Panel>().SelectMany(panel => panel.Controls.OfType<TextBox>()).Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
-        }
-
-        private static List<TextBox> GetInHierarchicalPanel(Form form)
-        {
-            return form.Controls.OfType<Panel>().SelectMany(panel => panel.Controls.OfType<Panel>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
         }
     }
 }
