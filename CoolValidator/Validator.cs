@@ -17,8 +17,7 @@ namespace CoolValidator
             var txtInGroupBox = GetTextBoxInContainer<GroupBox>(form);
             var txtInManyGroupBox = GetTextBoxInManyContainers<GroupBox>(form);
 
-            var txtInSplitContainer = GetTextBoxInContainer<SplitContainer>(form);
-            var txtInManySplitContainer = GetTextBoxInManyContainers<SplitContainer>(form);
+            var txtInSplitContainer = GetTextBoxInSpliContainer(form);
 
             var txtInTabControl = GetTextBoxInTabControl(form);
             var txtInManyTabControl = GetTextBoxInManyTabControl(form);
@@ -35,7 +34,6 @@ namespace CoolValidator
             txtList.AddRange(txtInManyTabControl);
 
             txtList.AddRange(txtInSplitContainer);
-            txtList.AddRange(txtInManySplitContainer);
 
             txtList.AddRange(txtInForm);
 
@@ -67,6 +65,17 @@ namespace CoolValidator
         private static List<TextBox> GetTextBoxInTabControl(Form form)
         {
             return form.Controls.OfType<TabControl>().Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(control => control.Controls.OfType<TextBox>()).Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
+        }
+
+        private static List<TextBox> GetTextBoxInSpliContainer(Form form)
+        {
+            var list = new List<TextBox>();
+            var tab1 = form.Controls.OfType<SplitContainer>().Select(splitContainer => splitContainer.Panel1).SelectMany(control => control.Controls.OfType<TextBox>()).Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
+            var tab2 = form.Controls.OfType<SplitContainer>().Select(splitContainer => splitContainer.Panel2).SelectMany(control => control.Controls.OfType<TextBox>()).Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
+
+            list.AddRange(tab1);
+            list.AddRange(tab2);
+            return list;
         }
     }
 }
