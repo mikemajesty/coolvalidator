@@ -26,6 +26,10 @@ namespace CoolValidator
             txtList.AddRange(txtInManyPanel);
 
             txtList.AddRange(txtInForm);
+
+            form.ActiveControl = txtList.OrderBy(t => t.TabIndex).FirstOrDefault();
+
+
             return predicate == null ? txtList.OrderBy(t => t.TabIndex).ToList() : txtList.Where(predicate).OrderBy(t => t.TabIndex).ToList();
         }
 
