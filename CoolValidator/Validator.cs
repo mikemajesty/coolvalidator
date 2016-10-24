@@ -42,12 +42,12 @@ namespace CoolValidator
                 MessageBox.Show(message.Text == null ? "This field is required" : message.Text, message.Caption == null ? "Warning" : message.Caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            form.ActiveControl = txtList.OrderBy(t => t.TabIndex).FirstOrDefault();
-
             if (type == ValidateType.IS_EMPTY)
             {
-                txtList.Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim()));
+                txtList = txtList.Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
             }
+
+            form.ActiveControl = txtList.OrderBy(t => t.TabIndex).FirstOrDefault();
 
             return predicate == null ? txtList.OrderBy(t => t.TabIndex).ToList() : txtList.Where(predicate).OrderBy(t => t.TabIndex).ToList();
         }
