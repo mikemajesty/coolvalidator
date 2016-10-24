@@ -1,0 +1,5 @@
+C:\Users\tegra-not\Desktop\CoolValidator\CoolValidator\bin\Debug\CoolValidator.dll
+C:\Users\tegra-not\Desktop\CoolValidator\CoolValidator\bin\Debug\CoolValidator.pdb
+C:\Users\tegra-not\Desktop\CoolValidator\CoolValidator\obj\Debug\CoolValidator.dll
+C:\Users\tegra-not\Desktop\CoolValidator\CoolValidator\obj\Debug\CoolValidator.pdb
+C:\Users\tegra-not\Desktop\CoolValidator\CoolValidator\obj\Debug\CoolValidator.csprojResolveAssemblyReference.cache

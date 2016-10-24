@@ -7,7 +7,7 @@ namespace CoolValidator
 {
     public static class formValidator
     {
-        public static List<TextBox> ValidateTextBoxIsEmpty(this Form form, MessageInfo message = null, Func<TextBox, bool> predicate = null)
+        public static List<TextBox> ValidateTextBox(this Form form, ValidateType type, MessageInfo message = null, Func<TextBox, bool> predicate = null)
         {
             var txtList = new List<TextBox>();
 
@@ -39,43 +39,48 @@ namespace CoolValidator
 
             if (txtList.Count > 0 && message != null)
             {
-                MessageBox.Show(message.Text, message.Caption, MessageBoxButtons.OK, message.icon);
+                MessageBox.Show(message.Text == null ? "This field is required" : message.Text, message.Caption == null ? "Warning" : message.Caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             form.ActiveControl = txtList.OrderBy(t => t.TabIndex).FirstOrDefault();
+
+            if (type == ValidateType.IS_EMPTY)
+            {
+                txtList.Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim()));
+            }
 
             return predicate == null ? txtList.OrderBy(t => t.TabIndex).ToList() : txtList.Where(predicate).OrderBy(t => t.TabIndex).ToList();
         }
 
         private static List<TextBox> GetTextBoxInForm(Form form)
         {
-            return form.Controls.OfType<TextBox>().Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
+            return form.Controls.OfType<TextBox>().ToList();
         }
 
         private static List<TextBox> GetTextBoxInContainer<T>(Form form) where T : Control
         {
-            return form.Controls.OfType<T>().SelectMany(control => control.Controls.OfType<TextBox>()).Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
+            return form.Controls.OfType<T>().SelectMany(control => control.Controls.OfType<TextBox>()).ToList();
         }
 
         private static List<TextBox> GetTextBoxInManyContainers<T>(Form form) where T : Control
         {
-            return form.Controls.OfType<T>().SelectMany(control => control.Controls.OfType<T>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
+            return form.Controls.OfType<T>().SelectMany(control => control.Controls.OfType<T>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).ToList();
         }
 
         private static List<TextBox> GetTextBoxInManyTabControl(Form form)
         {
-            return form.Controls.OfType<TabControl>().Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(control => control.Controls.OfType<TabControl>()).Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
+            return form.Controls.OfType<TabControl>().Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(control => control.Controls.OfType<TabControl>()).Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).ToList();
         }
         private static List<TextBox> GetTextBoxInTabControl(Form form)
         {
-            return form.Controls.OfType<TabControl>().Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(control => control.Controls.OfType<TextBox>()).Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
+            return form.Controls.OfType<TabControl>().Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(control => control.Controls.OfType<TextBox>()).ToList();
         }
 
         private static List<TextBox> GetTextBoxInSpliContainer(Form form)
         {
             var list = new List<TextBox>();
-            var tab1 = form.Controls.OfType<SplitContainer>().Select(splitContainer => splitContainer.Panel1).SelectMany(control => control.Controls.OfType<TextBox>()).Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
-            var tab2 = form.Controls.OfType<SplitContainer>().Select(splitContainer => splitContainer.Panel2).SelectMany(control => control.Controls.OfType<TextBox>()).Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
+            var tab1 = form.Controls.OfType<SplitContainer>().Select(splitContainer => splitContainer.Panel1).SelectMany(control => control.Controls.OfType<TextBox>()).ToList();
+            var tab2 = form.Controls.OfType<SplitContainer>().Select(splitContainer => splitContainer.Panel2).SelectMany(control => control.Controls.OfType<TextBox>()).ToList();
 
             list.AddRange(tab1);
             list.AddRange(tab2);
