@@ -7,7 +7,7 @@ namespace CoolValidator
 {
     public static class formValidator
     {
-        public static List<TextBox> ValidateTextBox(this Form form, Func<TextBox, bool> predicate = null)
+        public static List<TextBox> ValidateTextBox(this Form form, MessageInfo message = null, Func<TextBox, bool> predicate = null)
         {
             var txtList = new List<TextBox>();
 
@@ -37,8 +37,12 @@ namespace CoolValidator
 
             txtList.AddRange(txtInForm);
 
-            form.ActiveControl = txtList.OrderBy(t => t.TabIndex).FirstOrDefault();
+            if (txtList.Count > 0 && message != null)
+            {
+                MessageBox.Show(message.Text, message.Caption, MessageBoxButtons.OK, message.icon);
+            }
 
+            form.ActiveControl = txtList.OrderBy(t => t.TabIndex).FirstOrDefault();
 
             return predicate == null ? txtList.OrderBy(t => t.TabIndex).ToList() : txtList.Where(predicate).OrderBy(t => t.TabIndex).ToList();
         }
