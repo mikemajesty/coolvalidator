@@ -7,7 +7,7 @@ namespace CoolValidator
 {
     public static class formValidator
     {
-        public static List<TextBox> ValidateTextBox(this Form form, ValidateType type, MessageInfo message = null, Func<TextBox, bool> predicate = null)
+        public static List<TextBox> ValidateTextBox(this Form form, ValidateType type = ValidateType.NONE, MessageInfo message = null, Func<TextBox, bool> predicate = null)
         {
             var txtList = new List<TextBox>();
 
