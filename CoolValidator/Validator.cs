@@ -11,11 +11,11 @@ namespace CoolValidator
         {
             var txtList = new List<TextBox>();
 
-            var txtInPanel = GetTextBoxInGroupBox<Panel>(form);
-            var txtInManyPanel = GetInHierarchicalGroupBox<Panel>(form);
+            var txtInPanel = GetTextBoxInContainer<Panel>(form);
+            var txtInManyPanel = GetTextBoxInManyContainers<Panel>(form);
 
-            var txtInGroupBox = GetTextBoxInGroupBox<GroupBox>(form);
-            var txtInManyGroupBox = GetInHierarchicalGroupBox<GroupBox>(form);
+            var txtInGroupBox = GetTextBoxInContainer<GroupBox>(form);
+            var txtInManyGroupBox = GetTextBoxInManyContainers<GroupBox>(form);
 
             var txtInForm = GetTextBoxInForm(form);
 
@@ -34,12 +34,12 @@ namespace CoolValidator
             return form.Controls.OfType<TextBox>().Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
         }
 
-        private static List<TextBox> GetTextBoxInGroupBox<T>(Form form) where T : Control
+        private static List<TextBox> GetTextBoxInContainer<T>(Form form) where T : Control
         {
             return form.Controls.OfType<GroupBox>().SelectMany(panel => panel.Controls.OfType<TextBox>()).Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
         }
 
-        private static List<TextBox> GetInHierarchicalGroupBox<T>(Form form) where T : Control
+        private static List<TextBox> GetTextBoxInManyContainers<T>(Form form) where T : Control
         {
             return form.Controls.OfType<GroupBox>().SelectMany(panel => panel.Controls.OfType<GroupBox>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
         }
