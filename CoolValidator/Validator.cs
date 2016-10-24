@@ -17,6 +17,18 @@ namespace CoolValidator
             var txtInGroupBox = GetTextBoxInContainer<GroupBox>(form);
             var txtInManyGroupBox = GetTextBoxInManyContainers<GroupBox>(form);
 
+            var txtInTabControl = GetTextBoxInContainer<TabControl>(form);
+            var txtInManyTabControl = GetTextBoxInManyContainers<TabControl>(form);
+
+            var txtInSplitContainer = GetTextBoxInContainer<SplitContainer>(form);
+            var txtInManySplitContainer = GetTextBoxInManyContainers<SplitContainer>(form);
+
+            var txtInTableLayoutPanel = GetTextBoxInContainer<TableLayoutPanel>(form);
+            var txtInManyTableLayoutPanel = GetTextBoxInManyContainers<TableLayoutPanel>(form);
+
+            var txtInFlowLayoutPanel = GetTextBoxInContainer<FlowLayoutPanel>(form);
+            var txtInManyFlowLayoutPanel = GetTextBoxInManyContainers<FlowLayoutPanel>(form);
+
             var txtInForm = GetTextBoxInForm(form);
 
             txtList.AddRange(txtInGroupBox);
@@ -24,6 +36,18 @@ namespace CoolValidator
 
             txtList.AddRange(txtInPanel);
             txtList.AddRange(txtInManyPanel);
+
+            txtList.AddRange(txtInTabControl);
+            txtList.AddRange(txtInManyTabControl);
+
+            txtList.AddRange(txtInSplitContainer);
+            txtList.AddRange(txtInManySplitContainer);
+
+            txtList.AddRange(txtInTableLayoutPanel);
+            txtList.AddRange(txtInManyTableLayoutPanel);
+
+            txtList.AddRange(txtInFlowLayoutPanel);
+            txtList.AddRange(txtInManyFlowLayoutPanel);
 
             txtList.AddRange(txtInForm);
 
