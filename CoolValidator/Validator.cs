@@ -36,12 +36,12 @@ namespace CoolValidator
 
         private static List<TextBox> GetTextBoxInContainer<T>(Form form) where T : Control
         {
-            return form.Controls.OfType<GroupBox>().SelectMany(panel => panel.Controls.OfType<TextBox>()).Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
+            return form.Controls.OfType<T>().SelectMany(panel => panel.Controls.OfType<TextBox>()).Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
         }
 
         private static List<TextBox> GetTextBoxInManyContainers<T>(Form form) where T : Control
         {
-            return form.Controls.OfType<GroupBox>().SelectMany(panel => panel.Controls.OfType<GroupBox>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
+            return form.Controls.OfType<T>().SelectMany(panel => panel.Controls.OfType<T>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).Where(c => string.IsNullOrEmpty(c.Text.Trim())).ToList();
         }
     }
 }
