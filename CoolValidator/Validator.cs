@@ -7,7 +7,7 @@ namespace CoolValidator
 {
     public static class formValidator
     {
-        public static List<TextBox> ValidateTextBox(this Form form, MessageInfo message = null, Func<TextBox, bool> predicate = null)
+        public static List<TextBox> ValidateTextBoxIsEmpty(this Form form, MessageInfo message = null, Func<TextBox, bool> predicate = null)
         {
             var txtList = new List<TextBox>();
 
