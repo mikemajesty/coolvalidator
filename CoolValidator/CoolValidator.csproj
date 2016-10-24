@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="MessageInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidateType.cs" />
     <Compile Include="Validator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
