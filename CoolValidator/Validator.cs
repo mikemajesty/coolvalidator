@@ -42,7 +42,9 @@ namespace CoolValidator
                 txtList = txtList.Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
             }
 
-            txtList = predicate == null ? txtList.OrderBy(t => t.TabIndex).ToList() : txtList.Where(predicate).OrderBy(t => t.TabIndex).ToList();
+            txtList = predicate == null ? txtList.OrderBy(t => t.TabIndex).ToList() : 
+                    txtList.Where(predicate).OrderBy(t => t.TabIndex).ToList();
+
             method.Invoke();
 
             form.ActiveControl = txtList.OrderBy(t => t.TabIndex).FirstOrDefault();
@@ -57,21 +59,31 @@ namespace CoolValidator
 
         private static List<TextBox> GetTextBoxInContainer<T>(Form form) where T : Control
         {
-            return form.Controls.OfType<T>().SelectMany(control => control.Controls.OfType<TextBox>()).ToList();
+            return form.Controls.OfType<T>()
+                .SelectMany(control => control.Controls.OfType<TextBox>()).ToList();
         }
 
         private static List<TextBox> GetTextBoxInManyContainers<T>(Form form) where T : Control
         {
-            return form.Controls.OfType<T>().SelectMany(control => control.Controls.OfType<T>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).ToList();
+            return form.Controls.OfType<T>()
+                .SelectMany(control => control.Controls.OfType<T>())
+                .SelectMany(textBox => textBox.Controls.OfType<TextBox>()).ToList();
         }
 
         private static List<TextBox> GetTextBoxInManyTabControl(Form form)
         {
-            return form.Controls.OfType<TabControl>().Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(control => control.Controls.OfType<TabControl>()).Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(textBox => textBox.Controls.OfType<TextBox>()).ToList();
+            return form.Controls.OfType<TabControl>()
+                .Select(tabPages => tabPages.TabPages)
+                .SelectMany(tabPage => tabPage.OfType<TabPage>())
+                .SelectMany(control => control.Controls.OfType<TabControl>())
+                .Select(tabPages => tabPages.TabPages)
+                .SelectMany(tabPage => tabPage.OfType<TabPage>())
+                .SelectMany(textBox => textBox.Controls.OfType<TextBox>()).ToList();
         }
         private static List<TextBox> GetTextBoxInTabControl(Form form)
         {
-            return form.Controls.OfType<TabControl>().Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(control => control.Controls.OfType<TextBox>()).ToList();
+            return form.Controls.OfType<TabControl>()
+                .Select(tabPages => tabPages.TabPages).SelectMany(tabPage => tabPage.OfType<TabPage>()).SelectMany(control => control.Controls.OfType<TextBox>()).ToList();
         }
 
         private static List<TextBox> GetTextBoxInSpliContainer(Form form)
