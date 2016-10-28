@@ -79,7 +79,6 @@ namespace CoolValidator
             var list = new List<TextBox>();
             var tab1 = form.Controls.OfType<SplitContainer>().Select(splitContainer => splitContainer.Panel1).SelectMany(control => control.Controls.OfType<TextBox>()).ToList();
             var tab2 = form.Controls.OfType<SplitContainer>().Select(splitContainer => splitContainer.Panel2).SelectMany(control => control.Controls.OfType<TextBox>()).ToList();
-
             list.AddRange(tab1);
             list.AddRange(tab2);
             return list;
