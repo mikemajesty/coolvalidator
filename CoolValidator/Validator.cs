@@ -44,9 +44,10 @@ namespace CoolValidator
 
             txtList = predicate == null ? txtList.OrderBy(t => t.TabIndex).ToList() : 
                     txtList.Where(predicate).OrderBy(t => t.TabIndex).ToList();
-
-            method.Invoke();
-
+            
+            if(method != null)
+                method.Invoke();
+            
             form.ActiveControl = txtList.OrderBy(t => t.TabIndex).FirstOrDefault();
 
             return txtList;
