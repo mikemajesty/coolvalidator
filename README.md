@@ -1,12 +1,14 @@
 # CoolValidator - Validate TexBox now is easy
 
 #How to install
-```Install-Package coolvalidator```
+```
+  Install-Package coolvalidator
+```
 
 #How to use 
 <h4>First of all import the project namespace</h4>
 ```
-using CoolValidator;
+  using CoolValidator;
 ```
 </hr>
 #Validate TextBox
