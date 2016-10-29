@@ -4,10 +4,9 @@
 ```Install-Package coolvalidator```
 
 #How to use 
-<h4>First of all import the project namespace</h4> <b>using CoolValidator;</b>
+<h4>First of all import the project namespace</h4> ```using CoolValidator;```
 <hr>
 #Validate TextBox
-<hr>
 <h4>You can use default validator</h4>
 
 [![code_dafault.png](https://s16.postimg.org/9qao83lo5/code_dafault.png)](https://postimg.org/image/txo40ej5d/)
