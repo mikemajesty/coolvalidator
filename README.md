@@ -59,3 +59,6 @@ ___
 
 [![productClass.png](https://s13.postimg.org/evu7xzbpj/product_Class.png)](https://postimg.org/image/ceigqprsz/)
 
+To validate your entity use 
+
+[![validaTxtInFormPNG.png](https://s13.postimg.org/u4p78vbpj/valida_Txt_In_Form_PNG.png)](https://postimg.org/image/t2f0qbsw3/)
