@@ -35,11 +35,11 @@ ___
 <li><b>c => string.IsNullOrEmpty(c.Text) && c.Tag.Equals("Required")</b> - Your condition to validate a TextBox, you can put anything.</li>
 </ul>
 
-___
-
 To validate the example above it's necessary that TextBox be empty and its Tag property be "Required"
 
 [![loco.png](https://s13.postimg.org/lauhc9h5j/loco.png)](https://postimg.org/image/vkwwbi70z/)
+
+___
 
 ####You can use custom and default validator
 
