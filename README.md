@@ -66,3 +66,9 @@ To validate your entity use
 In the example above we took in the first error a list of possible errors, The error list is composed of
 
 [![errorClass.png](https://s13.postimg.org/z0ns3g5jb/error_Class.png)](https://postimg.org/image/yb4zr34zn/)
+
+Then we showed the error in a MessageBox
+
+[![warning.png](https://s13.postimg.org/5cpl1muiv/warning.png)](https://postimg.org/image/k8o4985xf/)
+
+You can do what you want with these error messages, make yourself comfortable
