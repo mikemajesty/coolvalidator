@@ -4,8 +4,7 @@
 ```Install-Package coolvalidator```
 
 #How to use 
-<h4>First of all import the project namespace</h4> 
-```using CoolValidator;```
+<h4>First of all import the project namespace</h4> <b>using CoolValidator;</b>
 <hr>
 #Validate TextBox
 <hr>
