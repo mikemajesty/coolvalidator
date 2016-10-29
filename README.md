@@ -13,5 +13,5 @@ You cam use default validator
 
 <ul>
 <li><b>ValidateType.IS_EMPTY</b> - Check If the TextBox is empty</li>
-<li><b>ValidateType.IS_EMPTY</b> - The method that will run after validation</li>
+<li><b>PosValidateAction</b> - The method that will run after validation</li>
 </ul>
