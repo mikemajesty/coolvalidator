@@ -5,7 +5,7 @@
 
 #How to use 
 <h4>First of all import the project namespace</h4>
-```using CoolValidator;
+```using CoolValidator;```
 </hr>
 #Validate TextBox
 </hr>
@@ -14,7 +14,7 @@
 [![code_dafault.png](https://s16.postimg.org/9qao83lo5/code_dafault.png)](https://postimg.org/image/txo40ej5d/)
 
 <ul>
-<li><b>```ValidateType.IS_EMPTY</b> - Check If the TextBox is empty</li>
+<li><b>```ValidateType.IS_EMPTY```</b> - Check If the TextBox is empty</li>
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
 </ul>
 </hr>
