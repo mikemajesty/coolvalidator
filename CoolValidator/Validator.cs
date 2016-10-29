@@ -52,15 +52,25 @@ namespace CoolValidator
             return txtList;
         }
 
-        public static string ValidateObject(this List<TextBox> txtList, object entity)
+        public static List<Errors> ValidateObject(this Form form, object entity)
         {
             IList<ValidationResult> erros = new List<ValidationResult>();
-            var errosMessage = "";
+
+            var errorList = new List<Errors>();
+
             if (!Validator.TryValidateObject(entity, new ValidationContext(entity, null, null), erros, true))
             {
-                erros.ToList().ForEach(c => errosMessage += "{c.ErrorMessage}\n");
+                erros.ToList().ForEach(c =>
+                {
+                    var error = new Errors
+                    {
+                        Erro = c.ErrorMessage,
+                        Field = c.MemberNames.FirstOrDefault()
+                    };
+                    errorList.Add(error);
+                });
             }
-            return errosMessage;
+            return errorList;
         }
 
         private static List<TextBox> GetTextBoxInForm(Form form)
