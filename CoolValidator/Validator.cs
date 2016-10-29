@@ -38,9 +38,7 @@ namespace CoolValidator
             txtList.AddRange(txtInForm);
 
             if (type == ValidateType.IS_EMPTY)
-            {
                 txtList = txtList.Where(textBox => string.IsNullOrEmpty(textBox.Text.Trim())).ToList();
-            }
 
             txtList = predicate == null ? txtList.OrderBy(t => t.TabIndex).ToList() : 
                     txtList.Where(predicate).OrderBy(t => t.TabIndex).ToList();
