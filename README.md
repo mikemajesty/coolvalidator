@@ -7,7 +7,7 @@
 Import its namespace 
 ```using CoolValidator;```
 
-You cam use default validator
+You can use default validator
 
 [![code_dafault.png](https://s16.postimg.org/9qao83lo5/code_dafault.png)](https://postimg.org/image/txo40ej5d/)
 
@@ -15,3 +15,7 @@ You cam use default validator
 <li><b>ValidateType.IS_EMPTY</b> - Check If the TextBox is empty</li>
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
 </ul>
+
+You can use a custom validator
+
+[![code_customValid.png](https://s16.postimg.org/wqhbkfjhx/code_custom_Valid.png)](https://postimg.org/image/huiscu835/)
