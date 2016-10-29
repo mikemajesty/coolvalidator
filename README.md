@@ -28,4 +28,4 @@ You can use a custom validator
 
 To validate the example above it's necessary that TextBox be empty and its Tag property be "Required"
 
-                              [![loco.png](https://s13.postimg.org/lauhc9h5j/loco.png)](https://postimg.org/image/vkwwbi70z/)
+[![loco.png](https://s13.postimg.org/lauhc9h5j/loco.png)](https://postimg.org/image/vkwwbi70z/)
