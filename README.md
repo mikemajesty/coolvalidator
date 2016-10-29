@@ -25,3 +25,6 @@ You can use a custom validator
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
 <li><b>c => string.IsNullOrEmpty(c.Text) && c.Tag.Equals("Required")</b> - Your condition to validate a TextBox, you can put anything.</li>
 </ul>
+
+To validate the example above it's necessary that TextBox be empty and its Tag property be "Required"
+[![loco.png](https://s13.postimg.org/lauhc9h5j/loco.png)](https://postimg.org/image/vkwwbi70z/)
