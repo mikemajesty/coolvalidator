@@ -4,7 +4,7 @@
 ```Install-Package coolvalidator```
 
 #How to use 
-Import its namespace 
+<h4>First of all import the project namespace</h4>
 ```using CoolValidator;```
 
 <h3>You can use default validator</h3>
