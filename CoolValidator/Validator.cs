@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace CoolValidator
 {
@@ -49,6 +50,17 @@ namespace CoolValidator
             form.ActiveControl = txtList.OrderBy(t => t.TabIndex).FirstOrDefault();
 
             return txtList;
+        }
+
+        public static string ValidateObject(this List<TextBox> txtList, object entity)
+        {
+            IList<ValidationResult> erros = new List<ValidationResult>();
+            var errosMessage = "";
+            if (!Validator.TryValidateObject(entity, new ValidationContext(entity, null, null), erros, true))
+            {
+                erros.ToList().ForEach(c => errosMessage += "{c.ErrorMessage}\n");
+            }
+            return errosMessage;
         }
 
         private static List<TextBox> GetTextBoxInForm(Form form)
