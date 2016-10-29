@@ -53,3 +53,5 @@ ___
 
 ___
 ##Validate Entity
+___
+[![productClass.png](https://s13.postimg.org/evu7xzbpj/product_Class.png)](https://postimg.org/image/ceigqprsz/)
