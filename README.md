@@ -22,7 +22,7 @@
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
 </ul>
 </hr>
-<h4>You can use a custom validator</h4>
+####You can use a custom validator
 
 [![code_customValid.png](https://s16.postimg.org/wqhbkfjhx/code_custom_Valid.png)](https://postimg.org/image/huiscu835/)
 
@@ -36,7 +36,7 @@ To validate the example above it's necessary that TextBox be empty and its Tag p
 
 [![loco.png](https://s13.postimg.org/lauhc9h5j/loco.png)](https://postimg.org/image/vkwwbi70z/)
 
-<h4>You can use custom and default validator</h4>
+####You can use custom and default validator
 
 [![code_defaultAndCustom.png](https://s16.postimg.org/tyy1ttkz9/code_default_And_Custom.png)](https://postimg.org/image/5v7a5j2i9/)
 
@@ -45,3 +45,6 @@ To validate the example above it's necessary that TextBox be empty and its Tag p
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
 <li><b>c => c.Tag.Equals("Required")</b> - Your condition to validate a TextBox, you can put anything.</li>
 </ul>
+
+</hr>
+##Validate TextBox
