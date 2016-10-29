@@ -23,5 +23,5 @@ You can use a custom validator
 <ul>
 <li><b>ValidateType.NONE</b> - Indicate that none validate it will be executed</li>
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
-<li><b>c => string.IsNullOrEmpty(c.Text) && c.Tag.Equals("Required")</b> - Your conditional to validate your TexBox, Your condition to validate a TextBox, you can put anything.</li>
+<li><b>c => string.IsNullOrEmpty(c.Text) && c.Tag.Equals("Required")</b> - Your condition to validate a TextBox, you can put anything.</li>
 </ul>
