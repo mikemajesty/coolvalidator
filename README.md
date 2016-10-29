@@ -62,3 +62,7 @@ ___
 To validate your entity use 
 
 [![validaTxtInFormPNG.png](https://s13.postimg.org/u4p78vbpj/valida_Txt_In_Form_PNG.png)](https://postimg.org/image/t2f0qbsw3/)
+
+In the example above we took in the first error a list of possible errors, The error list is composed of
+
+[![errorClass.png](https://s13.postimg.org/z0ns3g5jb/error_Class.png)](https://postimg.org/image/yb4zr34zn/)
