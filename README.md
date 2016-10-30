@@ -1,1 +1,74 @@
 # CoolValidator - Validate TexBox now is easy
+
+##How to install
+```
+  Install-Package coolvalidator
+```
+
+##How to use 
+####First of all import the project namespace
+```
+  using CoolValidator;
+```
+
+##Validate TextBox
+___
+
+####You can use default validator
+
+[![code_dafault.png](https://s16.postimg.org/9qao83lo5/code_dafault.png)](https://postimg.org/image/txo40ej5d/)
+
+<ul>
+<li><b> ValidateType.IS_EMPTY</b> - Check If the TextBox is empty</li>
+<li><b>PosValidateAction</b> - The method that will run after validation</li>
+</ul>
+
+___
+
+####You can use a custom validator
+
+[![code_customValid.png](https://s16.postimg.org/wqhbkfjhx/code_custom_Valid.png)](https://postimg.org/image/huiscu835/)
+
+<ul>
+<li><b>ValidateType.NONE</b> - Indicate that none validate it will be executed</li>
+<li><b>PosValidateAction</b> - The method that will run after validation</li>
+<li><b>c => string.IsNullOrEmpty(c.Text) && c.Tag.Equals("Required")</b> - Your condition to validate a TextBox, you can put anything.</li>
+</ul>
+
+To validate the example above it's necessary that TextBox be empty and its Tag property be "Required"
+
+[![loco.png](https://s13.postimg.org/lauhc9h5j/loco.png)](https://postimg.org/image/vkwwbi70z/)
+
+___
+
+####You can use custom and default validator
+
+[![code_defaultAndCustom.png](https://s16.postimg.org/tyy1ttkz9/code_default_And_Custom.png)](https://postimg.org/image/5v7a5j2i9/)
+
+<ul>
+<li><b>ValidateType.IS_EMPTY</b> - Check If the TextBox is empty</li>
+<li><b>PosValidateAction</b> - The method that will run after validation</li>
+<li><b>c => c.Tag.Equals("Required")</b> - Your condition to validate a TextBox, you can put anything.</li>
+</ul>
+
+___
+##Validate Entity
+___
+
+####Firstly you have to create a class with Annotation, example
+
+[![productClass.png](https://s13.postimg.org/evu7xzbpj/product_Class.png)](https://postimg.org/image/ceigqprsz/)
+
+To validate your entity use 
+
+[![validaTxtInFormPNG.png](https://s13.postimg.org/u4p78vbpj/valida_Txt_In_Form_PNG.png)](https://postimg.org/image/t2f0qbsw3/)
+
+In the example above we took in the first error a list of possible errors, The error list is composed of
+
+[![errorClass.png](https://s13.postimg.org/z0ns3g5jb/error_Class.png)](https://postimg.org/image/yb4zr34zn/)
+
+Then we showed the error in a MessageBox
+
+[![warning.png](https://s13.postimg.org/5cpl1muiv/warning.png)](https://postimg.org/image/k8o4985xf/)
+
+You can do what you want with these error messages, make yourself comfortable
