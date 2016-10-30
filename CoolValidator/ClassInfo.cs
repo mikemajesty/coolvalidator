@@ -8,6 +8,6 @@
 
         public string FieldDescription { get; set; }
 
-        public string FieldName { get; set; }
+        public string Field { get; set; }
     }
 }

@@ -58,8 +58,10 @@ namespace CoolValidator
         {
             IList<ValidationResult> erros = new List<ValidationResult>();
 
+            var type = entity.GetType();
+
             var errorList = new List<Errors>();
-            //GetReportAlias(typeof(entity).Namespace);
+            GetReportAlias(type.Name,type.Namespace);
             if (!Validator.TryValidateObject(entity, new ValidationContext(entity, null, null), erros, true))
             {
                 erros.ToList().ForEach(c =>
@@ -75,7 +77,7 @@ namespace CoolValidator
             return errorList;
         }
 
-        public static List<ClassInfo> GetReportAlias(string nameSpace)
+        public static List<ClassInfo> GetReportAlias(string name, string nameSpace)
         {
             var typelist =
               GetTypesInNamespace(Assembly.GetExecutingAssembly(), nameSpace)
@@ -99,7 +101,7 @@ namespace CoolValidator
                         report.ClassDescription = ((DescriptionAttribute)pro).Description;
                         var y = h.GetCustomAttributes(typeof(DescriptionAttribute), true).FirstOrDefault();
                         report.FieldDescription = ((DescriptionAttribute)y).Description.ToString();
-                        report.FieldName = h.Name;
+                        report.Field = h.Name;
                         reportList.Add(report);
                     });
                 }
