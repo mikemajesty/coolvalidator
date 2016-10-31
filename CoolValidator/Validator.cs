@@ -58,10 +58,8 @@ namespace CoolValidator
         {
             IList<ValidationResult> erros = new List<ValidationResult>();
 
-            var type = entity.GetType();
-
             var errorList = new List<Errors>();
-            GetReportAlias(type.Name,type.Namespace);
+
             if (!Validator.TryValidateObject(entity, new ValidationContext(entity, null, null), erros, true))
             {
                 erros.ToList().ForEach(c =>
@@ -76,45 +74,6 @@ namespace CoolValidator
             }
             return errorList;
         }
-
-        public static List<ClassInfo> GetReportAlias(string name, string nameSpace)
-        {
-            var typelist =
-              GetTypesInNamespace(Assembly.GetExecutingAssembly(), nameSpace)
-            .Where(c => ((DescriptionAttribute[])c.GetCustomAttributes(typeof(DescriptionAttribute), true)).Where(g => g.Description != null) != null).ToList();
-
-            var reportList = new List<ClassInfo>();
-
-            typelist.ForEach(c =>
-            {
-                ClassInfo report = null;
-
-                var pro = c.GetCustomAttributes(typeof(DescriptionAttribute), true).FirstOrDefault();
-
-                if (pro != null && !string.IsNullOrEmpty(((DescriptionAttribute)pro).Description))
-                {
-                    var proper = c.GetProperties().Where(f => ((DescriptionAttribute)f.GetCustomAttributes(typeof(DescriptionAttribute), true).FirstOrDefault()) != null);
-                    proper.ToList().ForEach(h =>
-                    {
-                        report = new ClassInfo();
-                        report.ClassName = c.Name;
-                        report.ClassDescription = ((DescriptionAttribute)pro).Description;
-                        var y = h.GetCustomAttributes(typeof(DescriptionAttribute), true).FirstOrDefault();
-                        report.FieldDescription = ((DescriptionAttribute)y).Description.ToString();
-                        report.Field = h.Name;
-                        reportList.Add(report);
-                    });
-                }
-            });
-
-            return reportList;
-        }
-
-        private static Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
-        {
-            return assembly.GetTypes().Where(t => string.Equals(t.Namespace, nameSpace, StringComparison.Ordinal)).ToArray();
-        }
-
 
         private static List<TextBox> GetTextBoxInForm(Form form)
         {
