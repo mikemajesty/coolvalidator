@@ -71,4 +71,4 @@ Then we showed the error in a MessageBox
 
 [![warning.png](https://s13.postimg.org/5cpl1muiv/warning.png)](https://postimg.org/image/k8o4985xf/)
 
-You can do what whatever you want with these error messages, make yourself comfortable
+You can do whatever you want with these error messages, make yourself comfortable
