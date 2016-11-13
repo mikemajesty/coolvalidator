@@ -72,3 +72,8 @@ Then we showed the error in a MessageBox
 [![warning.png](https://s13.postimg.org/5cpl1muiv/warning.png)](https://postimg.org/image/k8o4985xf/)
 
 You can do whatever you want with these error messages, make yourself comfortable
+<hr>
+### License
+
+It is available under the MIT license.
+[License](https://opensource.org/licenses/mit-license.php)
