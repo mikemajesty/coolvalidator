@@ -5,7 +5,7 @@
   Install-Package coolvalidator
 ```
 
-##How to use 
+##How to use
 ####First of all import the project namespace
 ```
   using CoolValidator;
