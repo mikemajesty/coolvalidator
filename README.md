@@ -15,9 +15,17 @@
 ___ 
 
 ####You can use default validator
+```
+  private void btnSave(object sender, EventArgs e)
+  {
+      this.ValidateTextBox(ValidateType.IS_EMPTY, PostValidate);
+  }
 
-[![code_dafault.png](https://s16.postimg.org/9qao83lo5/code_dafault.png)](https://postimg.org/image/txo40ej5d/)
-
+  private void PostValidate()
+  {
+      MessageBox.Show("Field is Required");
+  }
+```
 <ul>
 <li><b> ValidateType.IS_EMPTY</b> - Check If the TextBox is empty</li>
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
@@ -27,7 +35,18 @@ ___
 
 ####You can use a custom validator
 
-[![code_customValid.png](https://s16.postimg.org/wqhbkfjhx/code_custom_Valid.png)](https://postimg.org/image/huiscu835/)
+```
+  private void btnSave(object sender, EventArgs e)
+  {
+      this.ValidateTextBox(ValidateType.NONE, PostValidate, c =>
+                  string.IsNullOrEmpty(c.Text) && c.Tag.Equals("Required"));
+  }
+
+  private void PostValidate()
+  {
+      MessageBox.Show("Field is Required");
+  }
+``` 
 
 <ul>
 <li><b>ValidateType.NONE</b> - Indicate that none validate it will be executed</li>
@@ -37,7 +56,18 @@ ___
 
 To validate the example above it's necessary that TextBox be empty and its Tag property be "Required"
 
-[![loco.png](https://s13.postimg.org/lauhc9h5j/loco.png)](https://postimg.org/image/vkwwbi70z/)
+```
+  private void btnSave(object sender, EventArgs e)
+  {
+      this.ValidateTextBox(ValidateType.IS_EMPTY, PostValidate, c =>
+                                          c.Tag.Equals("Required"));
+  }
+
+  private void PostValidate()
+  {
+      MessageBox.Show("Field is Required");
+  }
+```
 
 ___
 
