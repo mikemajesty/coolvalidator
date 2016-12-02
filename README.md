@@ -56,6 +56,9 @@ ___
 
 To validate the example above it's necessary that TextBox be empty and its Tag property be "Required"
 
+[![required.png](https://s17.postimg.org/sxllw9n1r/required.png)](https://postimg.org/image/s82tjwmi3/)
+
+####You can use custom and default validator
 ```
   private void btnSave(object sender, EventArgs e)
   {
@@ -68,13 +71,6 @@ To validate the example above it's necessary that TextBox be empty and its Tag p
       MessageBox.Show("Field is Required");
   }
 ```
-
-___
-
-####You can use custom and default validator
-
-[![code_defaultAndCustom.png](https://s16.postimg.org/tyy1ttkz9/code_default_And_Custom.png)](https://postimg.org/image/5v7a5j2i9/)
-
 <ul>
 <li><b>ValidateType.IS_EMPTY</b> - Check If the TextBox is empty</li>
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
