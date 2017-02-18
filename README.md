@@ -15,7 +15,7 @@
 ___ 
 
 ####You can use default validator
-```
+```C#
   private void btnSave(object sender, EventArgs e)
   {
       this.ValidateTextBox(ValidateType.IS_EMPTY, PostValidate);
@@ -35,7 +35,7 @@ ___
 
 ####You can use a custom validator
 
-```
+```C#
   private void btnSave(object sender, EventArgs e)
   {
       this.ValidateTextBox(ValidateType.NONE, PostValidate, c =>
@@ -59,7 +59,7 @@ To validate the example above it's necessary that TextBox be empty and its Tag p
 [![required.png](https://s17.postimg.org/sxllw9n1r/required.png)](https://postimg.org/image/s82tjwmi3/)
 
 ####You can use custom and default validator
-```
+```C#
   private void btnSave(object sender, EventArgs e)
   {
       this.ValidateTextBox(ValidateType.IS_EMPTY, PostValidate, c =>
