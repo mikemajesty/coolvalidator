@@ -1,20 +1,20 @@
 # CoolValidator - Validate TexBox now is easy
 
-##How to install
+## How to install
 ```
   Install-Package coolvalidator
 ```
 
-##How to use
-####First of all import the project namespace
+## How to use
+#### First of all import the project namespace
 ```
   using CoolValidator;
 ```
 
-##Validate TextBox
+## Validate TextBox
 ___ 
 
-####You can use default validator
+#### You can use default validator
 ```C#
   private void btnSave(object sender, EventArgs e)
   {
@@ -33,7 +33,7 @@ ___
 
 ___
 
-####You can use a custom validator
+#### You can use a custom validator
 
 ```C#
   private void btnSave(object sender, EventArgs e)
@@ -58,7 +58,7 @@ To validate the example above it's necessary that TextBox be empty and its Tag p
 
 [![required.png](https://s17.postimg.org/sxllw9n1r/required.png)](https://postimg.org/image/s82tjwmi3/)
 
-####You can use custom and default validator
+#### You can use custom and default validator
 ```C#
   private void btnSave(object sender, EventArgs e)
   {
@@ -78,10 +78,10 @@ To validate the example above it's necessary that TextBox be empty and its Tag p
 </ul>
 
 ___
-##Validate Entity
+## Validate Entity
 ___
 
-####Firstly you have to create a class with Annotation, example
+#### Firstly you have to create a class with Annotation, example
 
 [![productClass.png](https://s13.postimg.org/evu7xzbpj/product_Class.png)](https://postimg.org/image/ceigqprsz/)
 
@@ -98,7 +98,9 @@ Then we showed the error in a MessageBox
 [![warning.png](https://s13.postimg.org/5cpl1muiv/warning.png)](https://postimg.org/image/k8o4985xf/)
 
 You can do whatever you want with these error messages, make yourself comfortable
+
 <hr>
+
 ### License
 
 It is available under the MIT license.
