@@ -81,7 +81,7 @@ ___
 ## Validate Entity
 ___
 
-#### Firstly you have to create a class with Annotation, example
+#### Firstly you must create a class with Annotation, example
 
 [![productClass.png](https://s13.postimg.org/evu7xzbpj/product_Class.png)](https://postimg.org/image/ceigqprsz/)
 
