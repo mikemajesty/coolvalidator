@@ -6,7 +6,7 @@
 ```
 
 ## How to use
-#### First of all import the project namespace
+#### Namespace
 ```
   using CoolValidator;
 ```
@@ -14,7 +14,7 @@
 ## Validate TextBox
 ___ 
 
-#### You can use default validator
+#### Default validator
 ```C#
   private void btnSave(object sender, EventArgs e)
   {
@@ -27,13 +27,13 @@ ___
   }
 ```
 <ul>
-<li><b> ValidateType.IS_EMPTY</b> - Check If the TextBox is empty</li>
+<li><b> ValidateType.IS_EMPTY</b> - Verify if the TextBox is empty</li>
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
 </ul>
 
 ___
 
-#### You can use a custom validator
+#### Custom validator
 
 ```C#
   private void btnSave(object sender, EventArgs e)
@@ -58,7 +58,7 @@ To validate the example above it's necessary that TextBox be empty and its Tag p
 
 [![required.png](https://s17.postimg.org/sxllw9n1r/required.png)](https://postimg.org/image/s82tjwmi3/)
 
-#### You can use custom and default validator
+#### Custom and default validator
 ```C#
   private void btnSave(object sender, EventArgs e)
   {
@@ -72,7 +72,7 @@ To validate the example above it's necessary that TextBox be empty and its Tag p
   }
 ```
 <ul>
-<li><b>ValidateType.IS_EMPTY</b> - Check If the TextBox is empty</li>
+<li><b>ValidateType.IS_EMPTY</b> - Varify if the TextBox is empty</li>
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
 <li><b>c => c.Tag.Equals("Required")</b> - Your condition to validate a TextBox, you can put anything.</li>
 </ul>
