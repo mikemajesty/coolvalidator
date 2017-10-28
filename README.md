@@ -51,7 +51,7 @@ ___
 <ul>
 <li><b>ValidateType.NONE</b> - Indicate that none validate it will be executed</li>
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
-<li><b>c => string.IsNullOrEmpty(c.Text) && c.Tag.Equals("Required")</b> - Your condition to validate a TextBox, you can put anything.</li>
+<li><b>c => string.IsNullOrEmpty(c.Text) && c.Tag.Equals("Required")</b> - Condition to validate a TextBox, you can put anything.</li>
 </ul>
 
 To validate the example above it's necessary that TextBox be empty and its Tag property be "Required"
@@ -74,7 +74,7 @@ To validate the example above it's necessary that TextBox be empty and its Tag p
 <ul>
 <li><b>ValidateType.IS_EMPTY</b> - Varify if the TextBox is empty</li>
 <li><b>PosValidateAction</b> - The method that will run after validation</li>
-<li><b>c => c.Tag.Equals("Required")</b> - Your condition to validate a TextBox, you can put anything.</li>
+<li><b>c => c.Tag.Equals("Required")</b> - Condition to validate a TextBox, you can put anything.</li>
 </ul>
 
 ___
