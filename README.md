@@ -11,7 +11,7 @@
   using CoolValidator;
 ```
 
-## Validate TextBox
+## Validate TextBox 
 ___ 
 
 #### Default validator
